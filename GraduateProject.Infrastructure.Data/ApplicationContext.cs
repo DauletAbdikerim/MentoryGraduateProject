@@ -24,10 +24,11 @@ namespace GraduateProject.Infrastructure.Data
             //        new Book { Id = Guid.NewGuid(), Name = "Tom", Price = 37, Description = "Description of a book." },
             //        new Book { Id = Guid.NewGuid(), Name = "Bob", Price = 41, Description = "Description of a book." },
             //        new Book { Id = Guid.NewGuid(), Name = "Sam", Price = 24, Description = "Description of a book." }
-            //); ; ;
+            //); ; ; 
             modelBuilder.Entity<User>().HasData(
                                    new User { Id = Guid.NewGuid(), Login = "qwe", Password = "qwe", },
-                                   new User { Id = Guid.NewGuid(), Login = "asd", Password = "asd", });
+                                   new User { Id = Guid.NewGuid(), Login = "asd", Password = "asd", },
+                                   new User { Id = Guid.NewGuid(), Login = "dake", Password = "dake", });
         }
 
     }
