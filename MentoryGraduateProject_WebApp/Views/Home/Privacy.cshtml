@@ -1,6 +1,18 @@
-﻿@{
+﻿@using GraduateProject.Domain.Core
+@model IEnumerable<Book>
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<p>Our books</p>
+
+@foreach (var item in Model)
+{
+    <div>
+        <h4>@item.Name</h4>
+        <h4>@item.Description</h4>
+        <h4>@item.Price</h4>
+    <p></p>
+    </div>
+}

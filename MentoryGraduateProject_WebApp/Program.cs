@@ -25,7 +25,7 @@ namespace MentoryGraduateProject_WebApp
                .AddCookie(options =>
                {
                    options.AccessDeniedPath = "/Home/Error";
-                   options.LoginPath = "/login";
+                   options.LoginPath = "/User/Login";
                });
             builder.Services.AddAuthorization();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
