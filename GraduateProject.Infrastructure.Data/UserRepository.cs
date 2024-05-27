@@ -1,38 +1,39 @@
 ﻿using GraduateProject.Domain.Core;
 using GraduateProject.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace GraduateProject.Infrastructure.Data
 {
     public class UserRepository : IUserRepository
     {
-        private ApplicationContext _db;
+        private readonly ApplicationContext _context;
 
-        public UserRepository(ApplicationContext db) { 
-            _db = db;
-        }
-        public void CreateUser(User user)
+        public UserRepository(ApplicationContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public void DeleteUser(Guid id)
+        public User GetUserByLoginAndPassword(string login, string password)
         {
-            throw new NotImplementedException();
+            
+            return _context.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
         }
 
-        public User GetUser(Guid id)
+        public User GetUser(Guid userId)
         {
-            throw new NotImplementedException();
+            return _context.Users.Find(userId);
         }
 
-        public User? GetUserByLoginAndPassword(string login, string password)
+        public IEnumerable<User> GetUsers()
         {
-            return _db.Users.FirstOrDefault(x => x.Login == login && x.Password == password);
+            return _context.Users.ToList();
         }
 
         public void UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            _context.Entry(user).State = EntityState.Modified;
+            _context.SaveChanges();
         }
+
     }
 }

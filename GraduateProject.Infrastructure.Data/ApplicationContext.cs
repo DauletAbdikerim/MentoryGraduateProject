@@ -13,7 +13,8 @@ namespace GraduateProject.Infrastructure.Data
     {
         public DbSet<Book> Books { get; set; } = null!;
         public DbSet<User> Users { get; set; } = null!;
-        //public DbSet<Order> Orders { get; set; } = null!;
+        
+        public DbSet<Order> Orders { get; set; } = null!;
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
@@ -30,6 +31,18 @@ namespace GraduateProject.Infrastructure.Data
                                    new User { Id = Guid.NewGuid(), Login = "qwe", Password = "qwe", },
                                    new User { Id = Guid.NewGuid(), Login = "asd", Password = "asd", },
                                    new User { Id = Guid.NewGuid(), Login = "dake", Password = "dake", });
+
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                Id = Guid.NewGuid(),
+                Login = "admin",
+                Password = "admin123",
+                Role = "Admin"
+            });
+
+            modelBuilder.Entity<User>()
+            .Property(u => u.Role)
+            .IsRequired();
         }
         
     }

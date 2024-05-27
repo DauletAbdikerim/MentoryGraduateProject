@@ -9,10 +9,10 @@ namespace GraduateProject.Domain.Interfaces
 {
     public interface IBookRepository
     {
-        Book GetBook(int id);
-        void CreateBook(Book book);
-        void UpdateBook(Book book);
-        void DeleteBook(int id);
         IEnumerable<Book> GetBooks();
+        Book GetBookById(Guid bookId);
+        void AddBook(Book book);
+        void UpdateBook(Book book);
+        void DeleteBook(Guid bookId);
     }
 }

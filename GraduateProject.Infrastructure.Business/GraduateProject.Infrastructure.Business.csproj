@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GraduateProject.Domain.Interfaces\GraduateProject.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\GraduateProject.Services.Interfaces\GraduateProject.Services.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

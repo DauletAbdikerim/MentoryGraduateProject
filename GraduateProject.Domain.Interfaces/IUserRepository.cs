@@ -4,12 +4,10 @@ namespace GraduateProject.Domain.Interfaces
 {
     public interface IUserRepository
     {
-      User GetUser(Guid id);
-      void CreateUser(User user);
-      void UpdateUser(User user);
-      void DeleteUser(Guid id);
-
-      User? GetUserByLoginAndPassword(string login, string password);
+        User GetUserByLoginAndPassword(string login, string password);
+        User GetUser(Guid userId);
+        IEnumerable<User> GetUsers();
+        void UpdateUser(User user);
 
     }
 }
